@@ -33,9 +33,9 @@
     <!-- Derby Datasource -->
     <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/g5ju54hom7pajx8t" />
-        <property name="username" value="txcvz528467w31rz" />
-        <property name="password" value="xksfjdkvs2xwci5w" />
+        <property name="url" value="jdbc:mysql://ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/rdjg5cyzky86bpua" />
+        <property name="username" value="sab9jift4f00ymrq" />
+        <property name="password" value="ov7vba3m8dqmvz0u" />
     </bean>
   
     <!-- Setup Transaction Manager -->

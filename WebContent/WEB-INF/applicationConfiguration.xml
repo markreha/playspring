@@ -1,0 +1,68 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd       
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+   <context:component-scan base-package="com.gcu" />
+   <context:annotation-config/>
+   <mvc:annotation-driven />
+ 
+ 	<!-- Tiles View Resolver -->
+  	<bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
+ 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/layouts/layouts.xml</value>
+				<value>/WEB-INF/layouts/views.xml</value>
+			</list>
+		</property>
+	</bean>
+
+    <!-- Derby Datasource -->
+    <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/g5ju54hom7pajx8t" />
+        <property name="username" value="txcvz528467w31rz" />
+        <property name="password" value="xksfjdkvs2xwci5w" />
+    </bean>
+  
+    <!-- Setup Transaction Manager -->
+    <aop:config>
+        <aop:pointcut id="allServiceMethods" expression="execution(* com.gcu.business.*Interface.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="allServiceMethods" />
+    </aop:config>
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true" />
+            <tx:method name="find*" read-only="true" />
+            <tx:method name="*" />
+        </tx:attributes>
+    </tx:advice>
+
+ 	<!-- Application Spring Beans -->
+   	<bean id="userController" class="com.gcu.controller.UserController" >
+ 		<property name="ordersService" ref="ordersService"/> 
+	</bean>
+	<bean id="ordersDataService" class="com.gcu.data.OrdersDataService">
+		<property name="dataSource" ref="dataSource" />
+ 	</bean>
+	<bean id="ordersService" class="com.gcu.business.OrdersBusinessService">
+ 	</bean>
+</beans>
+ 
+ 

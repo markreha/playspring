@@ -4,6 +4,10 @@
   <artifactId>trainjava</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  <properties>
+	<warname>trainjava</warname>				<!-- Final WAR File Name with no SNAPSHOTS -->
+  </properties>
+	
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -20,7 +24,7 @@
         <version>3.0.0</version>
         <configuration>
 			<warSourceDirectory>WebContent</warSourceDirectory>
-			<warName>trainjava</warName>
+			<warName>${warname}</warName>
         </configuration>
       </plugin>
 		<plugin>

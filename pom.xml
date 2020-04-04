@@ -50,6 +50,15 @@
         	</plugin>
 
 	</plugins>
+	<resources>
+    		<resource>
+    			<directory>src</directory>
+    			<includes>
+    				<include>log4j.xml</include>
+    			</includes>  
+			<targetPath>../${warname}/WEB-INF/classes</targetPath>							<!-- Copy Log4j Configuration into Classpath -->
+    		</resource>
+     	</resources>
   </build>
 
   <!-- Dependencies -->

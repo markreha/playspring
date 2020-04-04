@@ -30,18 +30,10 @@
 		</property>
 	</bean>
 
-    <!-- Derby Datasource 
-    <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp2.BasicDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/rdjg5cyzky86bpua" />
-        <property name="username" value="sab9jift4f00ymrq" />
-        <property name="password" value="ov7vba3m8dqmvz0u" />
-    </bean> -->
-	
     <!-- MySQL Datasource in Heroku -->   
     <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://a5s42n4idx9husyc.cbetxkdyhwsb.us-east-1.rds.amazonaws.com" />
+        <property name="url" value="jdbc:mysql://a5s42n4idx9husyc.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/t7933ugp85xegyu8" />
         <property name="username" value="ncajn8rx2gqngxqv" />
         <property name="password" value="o6mc8qpdr72m0ezk" />
     </bean>

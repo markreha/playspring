@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <properties>
-	<warname>trainjava</warname>				<!-- Final WAR File Name with no SNAPSHOTS -->
+	<warname>trainjava</warname>				<!-- WAR File Name -->
   </properties>
 	
   <build>

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.gcu.business.OrdersBusinessInterface;
 import com.gcu.model.Order;
@@ -21,6 +23,7 @@ import com.gcu.model.User;
 public class UserController
 {
 	OrdersBusinessInterface service;
+    	Logger logger = LoggerFactory.getLogger(UserController.class);
 		
 	@RequestMapping(path="/add", method=RequestMethod.GET)		// OR could use @GetMapping("/add")
 	public ModelAndView displayForm() 
@@ -31,6 +34,9 @@ public class UserController
 	@RequestMapping(path="/adduser", method=RequestMethod.POST)		// OR could use @PostMapping("/adduser")
 	public ModelAndView addUser(@Valid @ModelAttribute("user") User user, BindingResult result) 
 	{
+    		// Log the API call
+    		logger.info("Entering UserController.addUser()");
+		
 		// Validate the form
 		if (result.hasErrors())
 		{

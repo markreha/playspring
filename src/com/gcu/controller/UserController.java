@@ -46,6 +46,9 @@ public class UserController
 		// Call Orders Business Service
 		List<Order> orders = service.getAllOrders();
 
+		// Log the API call
+    		logger.info("Exiting UserController.addUser() and going to display the Orders");
+
 		// Display a list of Orders
 		return new ModelAndView("displayOrders", "orders", orders);
 	}

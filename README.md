@@ -185,6 +185,7 @@ NOTE: with the Azure for Students Starter account you can only provision 2 conta
    	    <version>1.21.0</version>
    </dependency>
    ```
+   
     * Add an app.yaml configuration for a Java app into the root directory of the application. In order to get MySQL database connectivity, you must add the following entry and replace the cloud_sql_instances setting with the Instance Connection Name for your MySQL database instance. There are sample files available in the Google Cloud documentation or one can be provided by your instructor. 
  
     * Add an appengine-web.xml configuration file to the WEB-INF directory of your project. There are sample files available in the Google Cloud documentation or one can be provided by your instructor.

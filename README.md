@@ -163,36 +163,33 @@ NOTE: with the Azure for Students Starter account you can only provision 2 conta
 3. 	Configure your application using the following steps:
     * Update POM file:
     ```xml
-   <plugin>
+    <plugin>
    	    <groupId>com.google.cloud.tools</groupId>
    	    <artifactId>appengine-maven-plugin</artifactId>
    	    <version>1.3.1</version>
-   </plugin>
-   
-   <dependency>
+     </plugin>
+    <dependency>
    	    <groupId>com.google.cloud.sql</groupId>
    	    <artifactId>mysql-socket-factory</artifactId>
    	    <version>1.0.5</version>
-   </dependency>
-   <dependency>
+    </dependency>
+    <dependency>
    	    <groupId>com.google.api-client</groupId>
    	    <artifactId>google-api-client</artifactId>
    	    <version>1.23.0</version>
-   </dependency>
-   <dependency>
+    </dependency>
+    <dependency>
    	    <groupId>com.google.api-client</groupId>
    	    <artifactId>google-api-client-appengine</artifactId>
    	    <version>1.21.0</version>
-   </dependency>
+    </dependency>
    ```
-   
-    * Add an app.yaml configuration for a Java app into the root directory of the application. In order to get MySQL database connectivity, you must add the following entry and replace the cloud_sql_instances setting with the Instance Connection Name for your MySQL database instance. There are sample files available in the Google Cloud documentation or one can be provided by your instructor. 
- 
+    * Add an app.yaml configuration for a Java app into the root directory of the application. In order to get MySQL database connectivity, you must add the following entry and replace the cloud_sql_instances setting with the Instance Connection Name for your MySQL database instance. There are sample files available in the Google Cloud documentation or one can be provided by your instructor.  
     * Add an appengine-web.xml configuration file to the WEB-INF directory of your project. There are sample files available in the Google Cloud documentation or one can be provided by your instructor.
     * If you are using logging you should configure the path for your log file to /tmp/[APP_NAME]/logs/[LOG_FILENAME].log in appengine-web.xml. 
     * Update your database configuration for your application (i.e. config.properties to setup db.connection property for Google MySQL database).
         * NOTE: the JDBC Connection String for MySQL requires the following format:
-jdbc:mysql://google/[SCHEMA]?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=[PROJECT_NAME_ID]:[DB_REGION]:[DB_INSTANCE_NAME] 
+            * jdbc:mysql://google/[SCHEMA]?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=[PROJECT_NAME_ID]:[DB_REGION]:[DB_INSTANCE_NAME] 
 4. Create the MySQL Database Container and initialize the schema in the Google Cloud Platform using the following steps:
     * Select SQL menu item from the Main Menu.
     * Select MySQL Database Engine and click the Next button.
@@ -210,19 +207,17 @@ jdbc:mysql://google/[SCHEMA]?socketFactory=com.google.cloud.sql.mysql.SocketFact
     * In the main Google menu go to APIs & Services, click on the Library menu, search for Google Cloud SQL, and make sure both Cloud SQL and Cloud SQL Admin API are enabled.
     * Update your database configuration for your application (i.e. config.properties to setup db.connection property for Google MySQL database).
         * NOTE: the JDBC Connection String for MySQL requires the following format:
-jdbc:mysql://google/[SCHEMA]?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=[PROJECT_NAME_ID]:[DB_REGION]:[DB_INSTANCE_NAME]
+            * jdbc:mysql://google/[SCHEMA]?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=[PROJECT_NAME_ID]:[DB_REGION]:[DB_INSTANCE_NAME]
 5. Build and Deploy your application using the following steps:
     * Open your Cloud Shell.
     * cd to your cloned project root directory
     * Optionally Test locally in Shell: 
         * mvn -P[PROFILE] clean appengine:run
-        * NOTE: use of Maven Profiles is optional and if not used then leave the P command line option off when running mvn from the command line.
-        * NOTE: comment out the google-api-client and google-api-client-appengine as dependencies in your maven file
-    * TEST: click on the Web Preview icon in the Shell and go to https://[project name].appspot.com/
+            * NOTE: use of Maven Profiles is optional and if not used then leave the P command line option off when running mvn from the command line.
+            * NOTE: comment out the google-api-client and google-api-client-appengine as dependencies in your maven file
+        * TEST: click on the Web Preview icon in the Shell and go to https://[project name].appspot.com/
     * Deploy to App Engine: mvn -P[PROFILE] clean appengine:deploy
         * NOTE: use of Maven Profiles is options and if not used then leave the P command line option off when running mvn from the command line.
     * Test at https://[PROJECT_NAME].appspot.com/
         * To view Exception Stack Track and Error logs you can go to the Home menu item and go under the Error Reporting section to view your most recent errors.
         * To view Application logs (to the console) go to App Engine->Versions and select Logs from the Tools dropdown.
-
-

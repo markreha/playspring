@@ -1,5 +1,6 @@
 # A simple Java Spring application that can be used for testing in various Cloud Platforms like Azure and Heroku. See the following directions for deploying a Java Spring application to Azure, AWS, Heroku, and Google Cloud.
 
+## Deployment to Cloud Platforms
 ## Azure
 1. Log into the Azure Portal. 
 2. Click the '+ Create a resource' icon from the Azure Portal.

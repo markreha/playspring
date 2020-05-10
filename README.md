@@ -1,5 +1,8 @@
 # A simple Java Spring application that can be used for testing in various Cloud Platforms like Azure and Heroku. See the following directions for deploying a Java Spring application to Azure, AWS, Heroku, and Google Cloud.
 
+## Important Fies
+* Procfile - start file for both Heroku Cloud Platform
+
 ## Deployment to Cloud Platform Instructions
 ## Azure
 1. Log into the Azure Portal. 
